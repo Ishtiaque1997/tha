@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button class="btn btn-default"id="subtract"><i class="fas fa-minus"  ></i></button>
+                           <input type="text" class="form-control text-center"id="Input1" value="1">
+                           <button class="btn btn-default"id="add"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5 >$<span id="PhonePrice">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button class="btn btn-default"id="subtract2"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center"id="Input2" value="1">
+                           <button class="btn btn-default" id="add2"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="CasePrice">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$1,278</h5>
+                        <h5>$0</h5>
+                        <h5>$1,278</h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <script>
+      function increment(id){
+         const Input=document.getElementById(id).value;
+         const newInput=+Input+1;
+         return newInput; 
+      }
+      const addSign=document.getElementById("add");
+      addSign.addEventListener("click",function(){
+         const fixedPrice=document.getElementById("PhonePrice").innerText;
+        // console.log(fixedPrice);
+         const result1=increment("Input1")
+         console.log(result1);
+         document.getElementById("Input1").value=result1;
+         const newPrice=result1*fixedPrice;
+         //const finalPrice=newPrice;
+         console.log(newPrice);
+         //const previousPrice=document.getElementById("PhonePrice").innerText;
+         // const newPrice=fixedPrice*result1;
+         // const finalPrice=+newPrice + +fixedPrice;
+         //console.log(newPrice);
+        //document.getElementById("PhonePrice").textContent=newPrice;
+
+        
+   })  
+      const add2Sign=document.getElementById("add2");
+      add2Sign.addEventListener("click",function(){
+         const fixedPrice=document.getElementById("CasePrice").innerText;
+         const result2=increment("Input2")
+         console.log(result2);
+         document.getElementById("Input2").value=result2; 
+         const newPrice=result2*fixedPrice;
+         //const finalPrice=newPrice;
+         console.log(newPrice);
+         //const previousPrice=document.getElementById("PhonePrice").innerText;
+          //const newPrice=fixedPrice*result1;
+         // const finalPrice=+newPrice + +fixedPrice;
+         //console.log(newPrice);
+        // document.getElementById("PhonePrice").textContent=finalPrice;
+      })
+      function decrement(id) {
+        const Input=document.getElementById(id).value;
+         const newInput=Input-1;
+         return newInput;
+      }
+      const minusSign=document.getElementById("subtract");
+      minusSign.addEventListener("click",function(){
+         const result1=decrement("Input1");
+        console.log(result1);
+        document.getElementById("Input1").value=result1; 
+          const fixedPrice=document.getElementById("PhonePrice").innerText;
+          //console.log(fixedPrice);
+          const newPrice=result1*fixedPrice;
+          //console.log(newPrice);
+          const finalPrice=newPrice+ -1*fixedPrice;
+          console.log(finalPrice);
+          document.getElementById("PhonePrice").textContent=finalPrice;
+          //const finalPrice=newPrice-fixedPrice;
+         // //const finalPrice=newPrice;
+         //console.log(finalPrice);
+         //const previousPrice=document.getElementById("PhonePrice").innerText;
+         // const newPrice=fixedPrice*result1;
+         // const finalPrice=+newPrice + +fixedPrice;
+         //console.log(finalPrice);
+        // document.getElementById("PhonePrice").textContent=finalPrice;
+      })
+      const minus2Sign=document.getElementById("subtract2");
+      minus2Sign.addEventListener("click",function(){
+         const result2=decrement("Input2");
+         console.log(result2);
+         document.getElementById("Input2").value=result2; 
+      })
+      // function addPricePhone(id){
+      //    const Input=document.getElementById("Input1").value;
+      //    for(Input=1;Input++){
+
+      //    }
+         // const updatedInput=increment("Input1");
+         // const previousPrice=document.getElementById("PhonePrice").innerText;
+         // const newPrice=previousPrice*updatedInput;
+         // return newPrice;
+      // }
+      //  const addPrice=document.getElementById("add");
+      //  addPrice.addEventListener("click",function(){
+      //    const InputPrice=document.getElementById("Input1").value;
+      //     const newPrice=result1*Input;
+      //     console.log(newPrice);
+      //  })  
+      //    const newPrice=addPricePhone("Input1");
+      // //console.log(newPrice);
+      //    document.getElementById("PhonePrice").innerText=newPrice;
+       
+      //  })
+      //  const addBtnPrice=document.getElementById("add");
+      //  addBtnPrice.addEventListener("click",function(){  
+      //     const newPrice1=addPricePhone("PhonePrice");
+      //  const actualPrice=newPrice1;
+     //  console.log(actualPrice)
+      // //document.getElementsByClassName("phoneBtn").namedItem=actualPrice;
+    //    })
+
+      // const updatePrice=document.getElementById("add");
+      // updatePrice.addEventListener("click",function(){
+      //    const Input=document.getElementById("Input1").value;
+      //    const previousPrice=document.getElementById("pricePhone").innerText;
+      //    const finalPrice=previousPrice*Input;
+      //   // console.log(finalPrice);
+         //document.getElementById("pricePhone").textContent=valueOf(finalPrice);
+
+      // })
+    
+
+      function addPriceCase(id){
+         const Input=document.getElementById("Input2").value;
+         const previousPrice=document.getElementById("CasePrice").innerText;
+         const newPrice=previousPrice*Input;
+         return newPrice;
+      }
+      
+     
+      const add2Product=document.getElementById("add2");
+      add2Product.addEventListener("click",function(){  
+         const newPrice=addPriceCase("Input2");
+         //console.log(newPrice);
+         //document.getElementById("price2").textContent=newPrice;
+      })
+       function subtractPricePhone(id){
+          const Input=document.getElementById("Input1").value;
+          const previousPrice=document.getElementById("PhonePrice").innerText;
+          const newPrice=previousPrice*Input;
+          return newPrice;
+       }
+       const subtractPrice=document.getElementById("subtract");
+       subtractPrice.addEventListener("click",function(){  
+          const newPrice=subtractPricePhone("Input1");
+          const previousPrice=document.getElementById("PhonePrice").innerText;
+        const actualPrice=newPrice;
+          // console.log(actualPrice);
+         //document.getElementById("pricePhone").textContent=newPrice;
+       })
+       function subtractPriceCase(id){
+          const Input=document.getElementById("Input2").value;
+          const previousPrice=document.getElementById("CasePrice").innerText;
+          const newPrice=previousPrice*Input;
+          return newPrice;
+       }
+       const subtract2Price=document.getElementById("subtract2");
+       subtract2Price.addEventListener("click",function(){  
+          const newPrice=subtractPriceCase("Input2");
+          const previousPrice=document.getElementById("CasePrice").innerText;
+        const actualPrice=newPrice;
+           //console.log(actualPrice);
+          //document.getElementById("price1").textContent=newPrice;
+       })
+     
+
+       
+    </script>
+
+// </body>
+
+// </html>
